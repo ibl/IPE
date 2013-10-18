@@ -41,9 +41,14 @@
                 <p>IPE can be extended by loading remote scripts&mdash;either by specifying the URL or by selecting one from our trusted authors.</p>
                 <h2>Load module by URL</h2>
                 <div>
-                    <form id="url-module-loader" class="form-inline">
-                        <input type="text" class="span10" placeholder="URL of a module" />
-                        <button class="btn" data-loading-text="Loading...">Load module</button>
+                    <form id="url-module-loader">
+                        <label class="sr-only" for="moduleUrl">URL of a Module</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="URL of a module" id="moduleUrl" />
+                            <span class="input-group-btn">
+                                <button class="btn" data-loading-text="Loading...">Load</button>
+                            </span>
+                        </div>
                     </form>
                 </div>
                 <h2>Load module by author</h2>
@@ -62,8 +67,10 @@
                 <h2>Share your workflow</h2>
                 <p>Let other researchers reproduce your work by copying and sharing the following URL.</p>
                 <form id="share-modules" class="form-inline">
-                    <input type="text" name="url" class="span10" readonly="readonly" />
-                    <input type="submit" class="btn" value="Copy" />
+                    <div class="input-group">
+                        <input type="text" name="url" class="form-control" readonly="readonly" />
+                        <span class="input-group-btn"><input type="submit" class="btn" value="Copy" /></span>
+                    </div>
                 </form>
             </div>
             <div id="docs" class="tab-pane">
