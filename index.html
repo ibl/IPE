@@ -71,35 +71,23 @@
                 <div class="page-header">
                     <h1>Documentation</h1>
                 </div>
-                <p>IPE provides some useful functions scoped in the global <code>TCGA</code> namespace to interact with <a href="http://cancergenome.nih.gov/">TCGA</a>.</p>
+                <p>IPE provides some useful functions scoped in the global <code>IPE</code> namespace.</p>
                 <p>Unless stated otherwise, the first argument of a callback function is reserved for an error object, a useful convention to allow error catching in asynchronous programming. If an error object is <code>null</code> no error occurred.</p>
                 <h2>Load scripts</h2>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.loadScript(url, callback)</code></td>
+                            <td class="span5"><code>IPE.loadScript(url, callback)</code></td>
                             <td>
                                 Loads one or more scripts over HTTPS <strong>(HTTP is not supported)</strong> using HTML script elements.<br />
                                 <code>url</code> is a string or a string array of URLs, <code>callback</code> a function with two parameters, an error object and a string array of loaded scripts.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.modules(callback)</code></td>
+                            <td><code>IPE.modules(callback)</code></td>
                             <td>
                                 Returns a list of loaded modules.<br />
                                 <code>callback</code> is a function with two parameters, an error object and a string array of loaded modules.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h2>Find data</h2>
-                <table class="table table-bordered table-striped">
-                    <tbody>
-                        <tr>
-                            <td class="span5"><code>TCGA.find(query, callback)</code></td>
-                            <td>
-                                Queries the TCGA RDF file index.<br />
-                                <code>query</code> is a SPARQL query string, <code>callback</code> a function with two parameters, an error object and an object representing the SPARQL query results in the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a>.
                             </td>
                         </tr>
                     </tbody>
@@ -108,59 +96,45 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.get(url, callback)</code></td>
+                            <td class="span5"><code>IPE.get(url, callback)</code></td>
                             <td>
-                                Downloads the contents of a file from <a href="https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/">TCGA's open-access HTTP directory</a> or any other data provider.<br />
+                                Downloads the contents of a file from <a href="https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/tumor/">IPE's open-access HTTP directory</a> or any other data provider.<br />
                                 <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and a string representing the contents of the requested file.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.get.json(url, callback)</code></td>
+                            <td><code>IPE.get.json(url, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but parses the downloaded file to JSON.<br />
+                                Same as <code>IPE.get</code>, but parses the downloaded file to JSON.<br />
                                 <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the contents of the requested file as JSON.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.get.xml(url, callback)</code></td>
+                            <td><code>IPE.get.xml(url, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but parses the downloaded file to XML.<br />
+                                Same as <code>IPE.get</code>, but parses the downloaded file to XML.<br />
                                 <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the contents of the requested file as XML.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.get.sparql(url, callback)</code></td>
+                            <td><code>IPE.get.sparql(url, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but parses the downloaded file to the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a>.<br />
+                                Same as <code>IPE.get</code>, but parses the downloaded file to the <a href="http://www.w3.org/TR/sparql11-results-json/">SPARQL 1.1 Query Results JSON Format</a>.<br />
                                 <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the SPARQL query results as JSON.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.get.range(url, startByte, endByte, callback)</code></td>
+                            <td><code>IPE.get.range(url, startByte, endByte, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but downloads only a subset of the file within the specified byte range.<br />
+                                Same as <code>IPE.get</code>, but downloads only a subset of the file within the specified byte range.<br />
                                 <code>url</code> is a URL string, <code>startByte</code> and <code>endByte</code> the integer range of bytes to download, and <code>callback</code> a function with two parameters, an error object and a string representing the partial contents of the requested file.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.get.archive(url, callback)</code></td>
+                            <td><code>IPE.get.archive(url, callback)</code></td>
                             <td>
-                                Same as <code>TCGA.get</code>, but extracts the downloaded gzipped archive.<br />
+                                Same as <code>IPE.get</code>, but extracts the downloaded gzipped archive.<br />
                                 <code>url</code> is a URL string, <code>callback</code> a function with two parameters, an error object and an object representing the contents of the requested archive.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>TCGA.get.barcodes(uuids, callback)</code></td>
-                            <td>
-                                Maps UUIDs to barcodes using the <a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+Barcode+to+UUID+Web+Service+User's+Guide">TCGA Barcode to UUID Web Service</a>.<br />
-                                <code>uuids</code> is an array of UUIDs, <code>callback</code> a function with two parameters, an error object and an object representing the mapping.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>TCGA.get.uuids(barcodes, callback)</code></td>
-                            <td>
-                                Maps barcodes to UUIDs using the <a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+Barcode+to+UUID+Web+Service+User's+Guide">TCGA Barcode to UUID Web Service</a>.<br />
-                                <code>barcodes</code> is an array of barcodes, <code>callback</code> a function with two parameters, an error object and an object representing the mapping.
                             </td>
                         </tr>
                     </tbody>
@@ -173,42 +147,42 @@
                     </p>
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.data.set(key, value, callback)</code></td>
+                            <td class="span5"><code>IPE.data.set(key, value, callback)</code></td>
                             <td>
                                 Adds a key-value pair to the store.<br />
                                 <code>key</code> is a string representing the key, <code>value</code> any type representing the value, and <code>callback</code> a function with one parameter, an error object.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.data.get(key, callback)</code></td>
+                            <td><code>IPE.data.get(key, callback)</code></td>
                             <td>
                                 Retrieves a key-value pair from the store.<br />
                                 <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, an error object and any type representing the value.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.data.del(key, callback)</code></td>
+                            <td><code>IPE.data.del(key, callback)</code></td>
                             <td>
                                 Removes a key-value pair from the data.<br />
                                 <code>key</code> is a string representing the key, <code>callback</code> a function with one parameter, an error object.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.data.exists(key, callback)</code></td>
+                            <td><code>IPE.data.exists(key, callback)</code></td>
                             <td>
                                 Checks if a key-value pair with the specified key exists in the store.<br />
                                 <code>key</code> is a string representing the key, <code>callback</code> a function with two parameters, an error object and a boolean indicating if it is in the store or not.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.data.keys(callback)</code></td>
+                            <td><code>IPE.data.keys(callback)</code></td>
                             <td>
                                 Returns a list of all keys in the stores.<br />
                                 <code>callback</code> is a function with two parameters, an error object and a string array of keys.
                             </td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.data.clear(callback)</code></td>
+                            <td><code>IPE.data.clear(callback)</code></td>
                             <td>
                                 Removes all key-value pairs from the store.<br />
                                 <code>callback</code> is a function with one parameter, an error object.
@@ -221,7 +195,7 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.ui.loadStylesheet(url)</code></td>
+                            <td class="span5"><code>IPE.ui.loadStylesheet(url)</code></td>
                             <td>
                                 Loads one or more external stylesheets using HTML link elements.<br />
                                 <code>url</code> is a string or a string array of URLs.
@@ -233,7 +207,7 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.ui.registerTab(options, callback)</code></td>
+                            <td class="span5"><code>IPE.ui.registerTab(options, callback)</code></td>
                             <td>
                                 Registers a tab in the menu bar of the IPE.<br />
                                 <code>options</code> is an object with the following properties: <code>id</code> is a string representing the ID of the tab (we recommend to name it after your module), <code>title</code> is a string representing the title of your module, <code>content</code> is the HTML fragment describing the tab pane, and <code>switchTab</code> is a boolean indicating whether the IPE should immediately switch to your tab after it was created.<br />
@@ -246,15 +220,15 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <td class="span5"><code>TCGA.ui.toast.info(message, duration)</code></td>
+                            <td class="span5"><code>IPE.ui.toast.info(message, duration)</code></td>
                             <td>Displays an info notification with the specified string <code>message</code> for the specified <code>duration</code> in milliseconds.</td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.ui.toast.success(message, duration)</code></td>
+                            <td><code>IPE.ui.toast.success(message, duration)</code></td>
                             <td>Displays a success notification with the specified string <code>message</code> for the specified <code>duration</code> in milliseconds.</td>
                         </tr>
                         <tr>
-                            <td><code>TCGA.ui.toast.error(message, duration)</code></td>
+                            <td><code>IPE.ui.toast.error(message, duration)</code></td>
                             <td>Displays an error notification with the specified string <code>message</code> for the specified <code>duration</code> in milliseconds.</td>
                         </tr>
                     </tbody>
@@ -276,7 +250,7 @@
         <script src="lib/jquery.js"></script>
         <script src="lib/ganglion.js"></script>
         <script src="lib/gzip.js"></script>
-        <script src="lib/tcga.js"></script>
+        <script src="lib/ipe.js"></script>
         <script src="lib/bootstrap.js"></script>
         <script src="lib/gui.js"></script>
         <script src="lib/analytics.js"></script>
