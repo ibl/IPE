@@ -1,4 +1,6 @@
-TCGA Toolbox
+Integrative Pathology Environment
 ============
 
-A collection of tools to process and analyze files from TCGA's open-access HTTP directory directly in the browser.
+The Integrative Pathology Ecosystem is an environment for the discovery and weaving together of diverse bioinformatics applications. 
+
+IPE  is a fork of the [TCGA Toolbox](http://github.com/tcga/Toolbox) that seeks to generalize its concepts into a global analytical space.
