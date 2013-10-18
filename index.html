@@ -2,16 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>TCGA Toolbox</title>
+        <title>IPE: Integrative Pathology Ecosystem</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="icon_16.png" />
+        <link rel="icon" type="image/png" href="favicon.ico" />
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/bootstrap-table.css" />
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/bootstrap-responsive.css" />
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -19,7 +19,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="brand" href="/web-toolbox/">TCGA Toolbox</a>
+                    <a class="brand" href="/IPE/">IPE</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li><a href="#modules" data-toggle="tab">Modules</a></li>
@@ -31,15 +31,15 @@
         </div>
         <div id="main" class="container tab-content">
             <div id="home" class="tab-pane active hero-unit">
-                <h1>TCGA Toolbox</h1>
-                <p>TCGA Toolbox provides a scripting environment to retrieve, store, and analyze data from <a href="http://cancergenome.nih.gov/">The Cancer Genome Atlas (TCGA)</a> in the browser. It can be extended by <a href="#modules" data-toggle="tab">loading modules</a>, or used interactively from the browser's <a href="https://developers.google.com/chrome-developer-tools/docs/overview">JavaScript console</a>.</p>
-                <p>This is a work in progress. The code is hosted on <a href="https://github.com/tcga/web-toolbox">GitHub</a>.</p>
+                <h1>Integrative Pathology Ecosystem</h1>
+                <p>The Integrative Pathology Ecosystem is an environment for the discovery and weaving together of diverse bioinformatics applications. It can be extended by <a href="#modules" data-toggle="tab">loading modules</a>, or used interactively from the browser's <a href="https://developers.google.com/chrome-developer-tools/docs/overview">JavaScript console</a>.</p>
+                <p>This is a work in progress. The code is hosted on <a href="https://github.com/ibl/IPE">GitHub</a>.</p>
             </div>
             <div id="modules" class="tab-pane">
                 <div class="page-header">
                     <h1>Modules</h1>
                 </div>
-                <p>TCGA Toolbox can be extended by loading remote scripts&mdash;either by specifying the URL or by selecting one from our trusted authors.</p>
+                <p>IPE can be extended by loading remote scripts&mdash;either by specifying the URL or by selecting one from our trusted authors.</p>
                 <h2>Load module by URL</h2>
                 <div>
                     <form id="url-module-loader" class="form-inline">
@@ -57,7 +57,7 @@
                 </div>
                 <h2>Loaded modules</h2>
                 <div id="registered-modules">
-                    <p>You have not loaded a module yet. Why not <a id="promoted-module" href="https://raw.github.com/agrueneberg/TCGA.rppa/master/rppa.js">try RPPA</a>, a module for real time analysis of reverse phase protein array data?</p>
+                    <p>You have not loaded a module yet.</p>
                     <ul></ul>
                 </div>
                 <h2>Share your workflow</h2>
@@ -71,7 +71,7 @@
                 <div class="page-header">
                     <h1>Documentation</h1>
                 </div>
-                <p>TCGA Toolbox provides some useful functions scoped in the global <code>TCGA</code> namespace to interact with <a href="http://cancergenome.nih.gov/">TCGA</a>.</p>
+                <p>IPE provides some useful functions scoped in the global <code>TCGA</code> namespace to interact with <a href="http://cancergenome.nih.gov/">TCGA</a>.</p>
                 <p>Unless stated otherwise, the first argument of a callback function is reserved for an error object, a useful convention to allow error catching in asynchronous programming. If an error object is <code>null</code> no error occurred.</p>
                 <h2>Load scripts</h2>
                 <table class="table table-bordered table-striped">
@@ -235,8 +235,8 @@
                         <tr>
                             <td class="span5"><code>TCGA.ui.registerTab(options, callback)</code></td>
                             <td>
-                                Registers a tab in the menu bar of the TCGA Toolbox.<br />
-                                <code>options</code> is an object with the following properties: <code>id</code> is a string representing the ID of the tab (we recommend to name it after your module), <code>title</code> is a string representing the title of your module, <code>content</code> is the HTML fragment describing the tab pane, and <code>switchTab</code> is a boolean indicating whether the TCGA Toolbox should immediately switch to your tab after it was created.<br />
+                                Registers a tab in the menu bar of the IPE.<br />
+                                <code>options</code> is an object with the following properties: <code>id</code> is a string representing the ID of the tab (we recommend to name it after your module), <code>title</code> is a string representing the title of your module, <code>content</code> is the HTML fragment describing the tab pane, and <code>switchTab</code> is a boolean indicating whether the IPE should immediately switch to your tab after it was created.<br />
                                 <code>callback</code> is a function with two parameters, an error object and the DOM element of the created tab pane.
                             </td>
                         </tr>
@@ -269,7 +269,7 @@
                     <a href="http://uab.mathbiol.org/informatics">http://uab.mathbiol.org/informatics</a>
                 </p>
                 <p>
-                    Contact: <a href="mailto:gruene@uab.edu">Alexander Grüneberg</a>
+                    Contact: <a href="mailto:robbinsd@uab.edu">David Robbins</a>
                 </p>
             </footer>
         </div>
