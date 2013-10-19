@@ -51,13 +51,26 @@
                         </div>
                     </form>
                 </div>
-                <h2>Load module by author</h2>
-                <div>
-                    <form id="list-module-loader" class="form-inline">
-                        <select id="authors">
-                            <option selected="selected" disabled="disabled">Loading authors ...</option>
-                        </select>
-                    </form>
+                <h2>Modules in <a href="http://minervajs.org">Minverva</a></h2>
+                <div ng-app="ipe:modules" ng-controller="modulelist">
+                    <input class="form-control" type="text" ng-model="search" placeholder="Search in module list">
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr ng-repeat="module in modules | filter:search | orderBy:'name'">
+                            <td>{{module.name}}</td>
+                            <td>{{module.maintainer.name}}</td>
+                            <td>{{module.title}}</td>
+                            <td>
+                                <button class="btn btn-xs btn-primary" ng-click="loadScript('{{module.url}}')">Load</button>
+                                <a class="btn btn-xs btn-default" href="http://minervajs.org/site/index.html#!/view/{{module.name}}">View</a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <h2>Loaded modules</h2>
                 <div id="registered-modules">
