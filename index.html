@@ -66,7 +66,8 @@
                             <td>{{module.maintainer.name}}</td>
                             <td>{{module.title}}</td>
                             <td>
-                                <button class="btn btn-xs btn-primary" ng-click="loadScript('{{module.url}}')">Load</button>
+                                <button ng-show="module.loaded" class="btn btn-xs btn-success">Loaded</button>
+                                <button ng-hide="module.loaded" class="btn btn-xs btn-primary" ng-click="loadScript('{{module.url}}')">Load</button>
                                 <a class="btn btn-xs btn-default" href="http://minervajs.org/site/index.html#!/view/{{module.name}}">View</a>
                             </td>
                         </tr>
