@@ -57,13 +57,11 @@
                     <table class="table">
                         <tr>
                             <th>Name</th>
-                            <th>Author</th>
                             <th>Title</th>
                             <th>Actions</th>
                         </tr>
                         <tr ng-repeat="module in modules | filter:search | orderBy:'name'">
                             <td>{{module.name}}</td>
-                            <td>{{module.maintainer.name}}</td>
                             <td>{{module.title}}</td>
                             <td>
                                 <button ng-show="module.loaded" class="btn btn-xs btn-success">Loaded</button>
