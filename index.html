@@ -98,7 +98,7 @@
                             <td class="span5"><code>IPE.loadScript(url, callback)</code></td>
                             <td>
                                 Loads one or more scripts over HTTPS <strong>(HTTP is not supported)</strong> using HTML script elements.<br />
-                                <code>url</code> is a string or a string array of URLs, <code>callback</code> a function with two parameters, an error object and a string array of loaded scripts.
+                                <code>url</code> is a string URL, a string array of URLs, or an object with the properties <code>scripts</code> and <code>registerModules</code> (setting <code>registerModules</code> to false will prevent extra copies of the loaded scripts from being loaded when refreshing the page). <code>callback</code> a function with two parameters, an error object and a string array of loaded scripts.
                             </td>
                         </tr>
                         <tr>
